@@ -1,5 +1,5 @@
 .customers {
-    max-width: 1520px;
+    max-width: 1580px;
     width: 100%;
     .customers-title {
         width: 100%;
@@ -35,7 +35,7 @@
         }
 
         .price {
-            width: 121px;
+            width: 141px;
             text-align: center;
             color: rgb(70, 69, 69);
         }
@@ -90,7 +90,7 @@
             }
 
             .price {
-                width: 121px;
+                width: 141px;
                 color: white;
 
                 span {
@@ -189,12 +189,53 @@
     }
 }
 .update-form {
-    width: 500px;
-    height: 300px;
+    width: 800px;
+    height: 400px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 20px;
     margin: 0;
-    background-color: aqua;
+    background-color: transparent;
+
+    .create-label {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        font-family: Roboto;
+        font-weight: 600;
+        background-color: white;
+        gap: 10px;
+    }
+    .create-input {
+        width: 100%;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        background-color: white;
+        border-radius: 5px;
+        border: 0;
+        border-bottom: 2px solid blue;
+    }
+    .update-btn {
+        width: 300px;
+        margin-top: 30px;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 16px;
+        border: 0;
+        border-top: 2px solid blue;
+        border-bottom: 2px solid blue;
+        background-color: aqua;
+    }
 }
