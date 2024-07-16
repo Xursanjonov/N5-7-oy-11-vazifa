@@ -8,8 +8,7 @@ const Customer = () => {
     const [showModal, setShowModal] = useState(false)
     const { data } = useGetCustomersQuery()
     const [update, { data: updateData }] = useUpdateCustomersMutation()
-    // console.log(data?.innerData[0])
-
+    
     const updateUser = (e) => {
         e.preventDefault()
         console.log(showModal)
@@ -35,8 +34,7 @@ const Customer = () => {
             </ul>
             {
                 showModal ? (
-                    <Modal close={setShowModal} key={'1'} >
-                        <h1>Modal</h1>
+                    <Modal close={setShowModal} key={'1'} title={'Update User'} >
                         <form className="update-form">
                             <input value={showModal?.fname} type="text" name="" id="" />
                             <input value={showModal?.lname} type="text" name="" id="" />

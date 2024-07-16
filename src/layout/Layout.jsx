@@ -6,7 +6,7 @@ import './layout.scss'
 
 const Layout = () => {
     const navigate = useNavigate()
-    const [bars, setBars] = useState(localStorage.getItem("bars") ?? false)
+    const [bars, setBars] = useState(localStorage.getItem("bars") ?? true)
 
     useEffect(() => {
         localStorage.setItem('bars', bars)

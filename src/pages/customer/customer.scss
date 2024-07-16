@@ -1,5 +1,5 @@
 .customers {
-    max-width: 1420px;
+    max-width: 1520px;
     width: 100%;
     .customers-title {
         width: 100%;
@@ -20,7 +20,7 @@
         }
 
         .name {
-            width: 200px;
+            width: 300px;
             color: black;
         }
 
@@ -75,7 +75,7 @@
             }
 
             .name {
-                width: 200px;
+                width: 300px;
                 color: black;
             }
 
@@ -187,4 +187,14 @@
             }
         }
     }
+}
+.update-form {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-color: aqua;
 }

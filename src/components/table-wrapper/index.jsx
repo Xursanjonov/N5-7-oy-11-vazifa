@@ -6,12 +6,6 @@ import './table-wrapper.scss'
 
 const TableWrapper = ({ user, id, setEdit, editUser }) => {
 
-    const updateUsers = (e) => {
-        e.preventDefault()
-        setEdit(user)
-        editUser()
-    }
-
     return (
         <li className='customers-ul-li' key={user?._id}>
             <p className='id'>{id + 1}.</p>
@@ -30,7 +24,7 @@ const TableWrapper = ({ user, id, setEdit, editUser }) => {
             <div className='more'> <span>Batafsil</span> </div>
             <div className='btns'>
                 <span>To`lov</span>
-                <button className='edit' onClick={updateUsers}>
+                <button className='edit' onClick={() => { setEdit(user); editUser() }}>
                     <FaPen fontSize={15} />
                 </button>
                 <button className='delete'>
