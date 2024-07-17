@@ -87,8 +87,39 @@
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background-color: azure;
+        background-color: white;
         border: 3px solid rgb(170, 168, 168);
         cursor: pointer;
+        position: relative;
+    }
+}
+
+// profile-click 
+.profile-click {
+    width: 100px;
+    padding: 10px 5px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 6px;
+    background-color: white;
+    border: .6px solid gray;
+    transform: translate(-20%, 80%);
+
+    button {
+        border: 0;
+        width: 100%;
+        font-size: 16px;
+        padding: 3px 5px;
+        font-weight: 600;
+        border-radius: 3px;
+        // border: 1px solid gray;
+        background-color: transparent;
+    }
+    .log-out {
+        color: red;
     }
 }

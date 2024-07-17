@@ -7,8 +7,8 @@ const CreateCustomer = () => {
     const [newUser, setNewUser] = useState({
         fname: "",
         lname: "",
-        phone_primary: "+9989",
-        address: ", Uzbekiston",
+        phone_primary: "+998",
+        address: " Uzbekiston",
         budget: 0
     });
     const [createUser, { data,error }] = useCreateCustomersMutation();

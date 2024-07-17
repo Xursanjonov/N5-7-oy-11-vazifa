@@ -1,9 +1,12 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { FaBars, FaUser, FaBarsStaggered } from "react-icons/fa6";
 import { FaSearch } from 'react-icons/fa';
 import './header.scss'
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ bars, setBars }) => {
+    const [bool, setBool] = useState(false)
+    const navigate = useNavigate()
 
     return (
         <header className='header'>
@@ -27,9 +30,18 @@ const Header = ({ bars, setBars }) => {
                     <option value="en">EN</option>
                     <option value="ru">RU</option>
                 </select>
-                <div className="profile">
+                <button onClick={() => setBool(p => !p)} className="profile">
                     <FaUser fontSize={24} className='profile-icons' />
-                </div>
+                    {
+                        bool ? (
+                            <div className="profile-click">
+                                <button onClick={() => navigate('/admin/profile')}>Profile</button>
+                                <button>Setting</button>
+                                <button className='log-out'>Log out</button>
+                            </div>
+                        ) : <></>
+                    }
+                </button>
             </div>
         </header>
     )

@@ -7,6 +7,7 @@ import CreateCustomer from './pages/create-customer'
 import CreateSeller from './pages/create-seller'
 import Order from './pages/order'
 import Seller from './pages/seller/Seller'
+import Profile from './pages/profile'
 import NotFound from './pages/not-found'
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='seller' element={<Seller />} />
           <Route path='create-seller' element={<CreateSeller />} />
           <Route path='customer/:customerId' element={<Customer />} />
+          <Route path='profile' element={<Profile />} />
         </Route>
         <Route path='*' element={<NotFound />} />
       </Routes>

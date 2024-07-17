@@ -9,17 +9,17 @@ import Loading from '../../components/loading';
 import './customer.scss'
 
 const Customer = () => {
-    // const [limit, setLimit] = useState(5)
+    const [limit, setLimit] = useState(5)
     const [pin, setPin] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const { data } = useGetCustomersQuery({ limit: 8 })
     const [update, { data: updateData }] = useUpdateCustomersMutation()
-    // const handleChange = (_, value) => {
-    //     setLimit(value)
-    // }
-    // const pageCount = Math.ceil(data?.totalCount / limit) || 1;
+    const handleChange = (_, value) => {
+        setLimit(value)
+    }
+    const pageCount = Math.ceil(data?.totalCount / limit) || 1;
     console.log(updateData)
-    // console.log(pageCount)
+    console.log(pageCount)
     const updateUser = (e) => {
         e.preventDefault()
         console.log(fname)
@@ -41,13 +41,14 @@ const Customer = () => {
                 {
                     data?.innerData ?
                         data?.innerData?.map((user, inx) => (
-                            <TableWrapper key={user?._id} id={inx} editUser={updateUser} pin={pin} setPin={setPin} user={user} setEdit={setShowModal} />
+                            <TableWrapper key={user?._id} id={inx} editUser={updateUser}
+                                pin={pin} setPin={setPin} user={user} setEdit={setShowModal} />
                         )) : <Loading />
                 }
             </ul>
-            {/* <Stack className='stack' spacing={2}>
+            <Stack className='stack' spacing={2}>
                 <Pagination count={pageCount} onChange={handleChange} color="primary" />
-            </Stack> */}
+            </Stack>
             {
                 showModal ? (
                     <Modal close={setShowModal} key={'1'} title={'Update User'} >
@@ -72,7 +73,9 @@ const Customer = () => {
                                 <input onChange={(e) => setShowModal(p => ({ ...p, budget: e.target.value }))} value={showModal?.budget}
                                     className='create-input' type="text" />
                             </label>
-                            <button type='submit' className='update-btn'>Update</button>
+                            <p className='create-label'>
+                                <button type='submit' className='update-btn'>Update</button>
+                            </p>
                         </form>
                     </Modal>
                 ) : <></>
