@@ -1,6 +1,9 @@
 .customers {
-    max-width: 1580px;
+    max-width: 1200px;
     width: 100%;
+    margin: 20px auto;
+    // background-color: #ddd;
+
     .customers-title {
         width: 100%;
         margin: 0 auto;
@@ -16,21 +19,21 @@
         font-weight: 700;
 
         .id {
-            width: 80px;
+            width: 40px;
         }
 
         .name {
-            width: 300px;
+            width: 120px;
             color: black;
         }
 
         .address {
-            width: 240px;
+            width: 120px;
             color: rgb(70, 69, 69);
         }
 
         .tel {
-            width: 150px;
+            width: 120px;
             color: rgb(70, 69, 69);
         }
 
@@ -53,6 +56,7 @@
             // background-color: aqua;
         }
     }
+
     .customers-ul {
         width: 100%;
         margin: 0 auto;
@@ -70,22 +74,27 @@
             border: 1px solid #ddd;
 
             .id {
-                width: 80px;
-                // background-color: aqua;
+                width: 40px;
             }
 
             .name {
-                width: 300px;
+                width: 120px;
+                word-break: keep-all;
                 color: black;
+                // background-color: aqua;
             }
 
             .address {
-                width: 240px;
+                width: 120px;
+                word-break: keep-all;
                 color: rgb(70, 69, 69);
+                // background-color: aqua;
             }
 
             .tel {
-                width: 150px;
+                width: 120px;
+                word-break: break-all;
+                // background-color: aqua;
                 // color: rgb(255, 0, 255);
             }
 
@@ -188,6 +197,7 @@
         }
     }
 }
+
 .update-form {
     width: 800px;
     height: 400px;
@@ -210,6 +220,7 @@
         background-color: white;
         gap: 10px;
     }
+
     .create-input {
         width: 100%;
         padding: 10px 20px;
@@ -222,6 +233,7 @@
         border: 0;
         border-bottom: 2px solid blue;
     }
+
     .update-btn {
         width: 300px;
         margin-top: 30px;
@@ -238,4 +250,30 @@
         border-bottom: 2px solid blue;
         background-color: aqua;
     }
+}
+
+// pin
+.id {
+    position: relative;
+
+    .pin {
+        left: 0;
+        position: absolute;
+        padding: 4px;
+        border: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background-color: transparent;
+        transform: translate(-105%, -60%);
+    }
+}
+
+// pagination 
+.stack {
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

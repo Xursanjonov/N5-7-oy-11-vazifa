@@ -5,21 +5,18 @@
     background-color: #F5F6FA;
     display: grid;
 }
-
 .barsL-on {
     display: grid;
     grid-template-columns: 60px 1fr;
 }
-
 .barsL-off {
     display: grid;
     grid-template-columns: 301px 1fr;
 }
-
 .layout__container-main {
+    max-width: 1480px;
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;

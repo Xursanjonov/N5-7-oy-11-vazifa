@@ -24,7 +24,7 @@ const CreateCustomer = () => {
             console.error('Failed to create user:', err);
         }
     };
-    console.log('New User:', newUser);
+    // console.log('New User:', newUser);
 
     return (
         <section className='create'>

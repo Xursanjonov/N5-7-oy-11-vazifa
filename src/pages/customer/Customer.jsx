@@ -1,22 +1,30 @@
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
+import * as React from 'react';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
 import { useGetCustomersQuery, useUpdateCustomersMutation } from '../../lib/api/customers'
 import TableWrapper from '../../components/table-wrapper';
 import Modal from '../../components/modal/Modal';
-import './customer.scss'
 import Loading from '../../components/loading';
+import './customer.scss'
 
 const Customer = () => {
+    // const [limit, setLimit] = useState(5)
+    const [pin, setPin] = useState(false)
     const [showModal, setShowModal] = useState(false)
-    const { data } = useGetCustomersQuery()
+    const { data } = useGetCustomersQuery({ limit: 8 })
     const [update, { data: updateData }] = useUpdateCustomersMutation()
-
+    // const handleChange = (_, value) => {
+    //     setLimit(value)
+    // }
+    // const pageCount = Math.ceil(data?.totalCount / limit) || 1;
+    console.log(updateData)
+    // console.log(pageCount)
     const updateUser = (e) => {
         e.preventDefault()
         console.log(fname)
         update((user?._id, showModal))
     }
-
-    console.log(updateData)
 
     return (
         <div className='customers'>
@@ -33,10 +41,13 @@ const Customer = () => {
                 {
                     data?.innerData ?
                         data?.innerData?.map((user, inx) => (
-                            <TableWrapper key={user?._id} editUser={updateUser} user={user} id={inx} setEdit={setShowModal} />
+                            <TableWrapper key={user?._id} id={inx} editUser={updateUser} pin={pin} setPin={setPin} user={user} setEdit={setShowModal} />
                         )) : <Loading />
                 }
             </ul>
+            {/* <Stack className='stack' spacing={2}>
+                <Pagination count={pageCount} onChange={handleChange} color="primary" />
+            </Stack> */}
             {
                 showModal ? (
                     <Modal close={setShowModal} key={'1'} title={'Update User'} >

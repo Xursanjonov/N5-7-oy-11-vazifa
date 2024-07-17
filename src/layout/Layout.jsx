@@ -8,13 +8,18 @@ const Layout = () => {
     const navigate = useNavigate()
     const [bars, setBars] = useState(localStorage.getItem("bars") ?? true)
 
+    const token = localStorage.getItem('admin-token')
+
     useEffect(() => {
         localStorage.setItem('bars', bars)
     }, [bars])
 
-    if (!localStorage.getItem("admin-token")) {
-        return navigate('/')
-    }
+    useEffect(() => {
+        if (!token) {
+            console.log(token)
+            return navigate('/')
+        }
+    }, [token])
 
     return (
         <div className={`layout__container ${bars ? 'barsL-off' : 'barsL-on'}`}>

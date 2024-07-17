@@ -2,13 +2,21 @@ import React from 'react'
 import { memo } from 'react'
 import { Link } from 'react-router-dom'
 import { FaPen, FaTrashCan } from 'react-icons/fa6'
-import './table-wrapper.scss'
+import { GiPin } from "react-icons/gi"
+import { BsPinAngle } from "react-icons/bs";
 
-const TableWrapper = ({ user, id, setEdit, editUser }) => {
+const TableWrapper = ({ user, setEdit, id, setPin, pin, editUser }) => {
 
     return (
         <li className='customers-ul-li' key={user?._id}>
-            <p className='id'>{id + 1}.</p>
+            <p className='id'>
+                <button className='pin' onClick={() => user.pin = false}>
+                    {
+                        user?.pin ? <GiPin fontSize={20} color='red' /> : <BsPinAngle fontSize={20} color='blue' />
+                    }
+                </button>
+                {id + 1}.
+            </p>
             <Link to={`/admin/customer/${user?._id}`} className='name'>
                 <p>{user?.fname} {user?.lname}</p>
             </Link>
