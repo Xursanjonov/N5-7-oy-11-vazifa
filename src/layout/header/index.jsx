@@ -1,12 +1,30 @@
 import React, { memo, useState } from 'react'
-import { FaBars, FaUser, FaBarsStaggered } from "react-icons/fa6";
-import { FaSearch } from 'react-icons/fa';
-import './header.scss'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { FaBars, FaUser, FaBarsStaggered } from "react-icons/fa6";
+import { getProfile } from '../../lib/slice/profileSlice';
+import './header.scss'
 
 const Header = ({ bars, setBars }) => {
     const [bool, setBool] = useState(false)
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleProfile = () => {
+        fetch('https://trade.namtech.uz/get/profile', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem("admin-token")}`
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch(getProfile(data?.innerData.user));
+                navigate('/admin/profile');
+            })
+            .catch(er => console.error('Error:', er));
+    }
 
     return (
         <header className='header'>
@@ -31,11 +49,11 @@ const Header = ({ bars, setBars }) => {
                     <option value="ru">RU</option>
                 </select>
                 <button onClick={() => setBool(p => !p)} className="profile">
-                    <FaUser fontSize={24} className='profile-icons' />
+                    <FaUser fontSize={20} className='profile-icons' />
                     {
                         bool ? (
                             <div className="profile-click">
-                                <button onClick={() => navigate('/admin/profile')}>Profile</button>
+                                <button onClick={handleProfile}>Profile</button>
                                 <button>Setting</button>
                                 <button className='log-out'>Log out</button>
                             </div>
