@@ -3,20 +3,19 @@ import { Link, NavLink } from 'react-router-dom'
 import { RiAdminFill } from "react-icons/ri";
 import { FaUser, FaUsers } from "react-icons/fa";
 import { MdDashboard, MdDashboardCustomize, MdOutlinePriceChange } from "react-icons/md";
+import { useGetProfileQuery } from '../../lib/api/userApi';
 import './sidebar.scss'
 
 const Sidebar = ({ bars }) => {
-    const user = JSON.parse(localStorage.getItem("admin"))
-    const barsIcon = localStorage.getItem("bars")
-
-    console.log(barsIcon)
+    const { data } = useGetProfileQuery()
+    const user = data?.innerData?.user
 
     return (
         <div className={`sidebar ${!bars ? 'bars-on' : 'bars-off'}`}>
-            <Link to={`/admin/customer`} className='sidebar-logo'>
-                <RiAdminFill fontSize={24} className='sidebar-logo-icon' color='#0009' />
+            <Link to={`/admin/profile`} className='sidebar-logo'>
+                <RiAdminFill fontSize={24} className='sidebar-logo-icon' color='black' />
                 {
-                    bars ? (user?.fname + ' ' + user?.lname) : <></>
+                    bars ? user?.fname : <></>
                 }
             </Link>
             <ul className='sidebar-ul'>

@@ -1,23 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    value: JSON.parse(sessionStorage.getItem("role-admin")) || {},
+    value: {},
 }
 
-
 const profileSlice = createSlice({
-    name: 'profile',
+    name: 'profile-data',
     initialState,
     reducers: {
         getProfile: (state, action) => {
             state.value = action.payload;
-            sessionStorage.setItem("role-admin", JSON.stringify(state.value))
         },
-        setProfile: (state, { payload }) => {
-            state.value = payload;
-        },
+
+        editProfile: (state, action) => {
+            state.value = action.payload
+        }
     },
 });
 
-export const { getProfile, setProfile } = profileSlice.actions;
-export default profileSlice.reducer;
+export const { getProfile, editProfile } = profileSlice.actions
+export default profileSlice.reducer

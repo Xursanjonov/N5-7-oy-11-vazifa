@@ -1,29 +1,23 @@
 import React, { memo, useState } from 'react'
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaUser, FaBarsStaggered } from "react-icons/fa6";
 import { getProfile } from '../../lib/slice/profileSlice';
+import { useGetProfileQuery, useUpdateProfileMutation } from '../../lib/api/userApi';
 import './header.scss'
+import { useDispatch } from 'react-redux';
 
 const Header = ({ bars, setBars }) => {
     const [bool, setBool] = useState(false)
+    const { data: aboutMe } = useGetProfileQuery()
+    const [updateProfile, { data }] = useUpdateProfileMutation()
     const navigate = useNavigate()
     const dispatch = useDispatch()
+
     const handleProfile = () => {
-        fetch('https://trade.namtech.uz/get/profile', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem("admin-token")}`
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                dispatch(getProfile(data?.innerData.user));
-                navigate('/admin/profile');
-            })
-            .catch(er => console.error('Error:', er));
+        updateProfile({ ...aboutMe?.innerData?.user })
+        dispatch(getProfile(data?.innerData?.user));
+        navigate('/admin/profile');
     }
 
     return (

@@ -8,7 +8,7 @@ import './login.scss'
 
 const Login = () => {
     const [type, setType] = useState(false)
-    const [admins, setAdmins] = useState({ username: 'khursanjonov', password: '123456788' })
+    const [admins, setAdmins] = useState({ username: 'xursanjonov004', password: '123456778' })
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

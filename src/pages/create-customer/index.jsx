@@ -11,7 +11,7 @@ const CreateCustomer = () => {
         address: " Uzbekiston",
         budget: 0
     });
-    const [createUser, { data,error }] = useCreateCustomersMutation();
+    const [createUser, { data, error }] = useCreateCustomersMutation();
     const navigate = useNavigate();
 
     const handleCreateUser = async (e) => {
@@ -24,7 +24,6 @@ const CreateCustomer = () => {
             console.error('Failed to create user:', err);
         }
     };
-    // console.log('New User:', newUser);
 
     return (
         <section className='create'>
@@ -90,7 +89,10 @@ const CreateCustomer = () => {
                             placeholder="Budget"
                         />
                     </label>
-                    <button className='create-btn' type='submit'>Create</button>
+                    <label htmlFor="button" className='label'>
+                        <span>Button</span>
+                        <button className='create-btn' id='button' type='submit'>Create</button>
+                    </label>
                 </form>
                 {error && <p className="error">{error.message}</p>}
             </div>
