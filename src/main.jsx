@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './lib/store.js'
 import './index.scss'
+import 'number-brm'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>

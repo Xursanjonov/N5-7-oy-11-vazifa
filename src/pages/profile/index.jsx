@@ -4,6 +4,7 @@ import { FaPen, FaUser } from 'react-icons/fa';
 import { editProfile } from '../../lib/slice/profileSlice';
 import { useGetProfileQuery, useUpdateProfileMutation } from '../../lib/api/userApi';
 import './profile.scss'
+import { updateAdmin } from '../../lib/slice/adminSlice';
 
 let user = {}
 
@@ -11,7 +12,7 @@ const Profile = () => {
     const { data: admin } = useGetProfileQuery()
     const [updateProfiles, { data }] = useUpdateProfileMutation()
     const users = admin?.innerData?.user
-    const [update, setUpdate] = useState(user ?? users)
+    const [update, setUpdate] = useState(users)
     const [dis, setDis] = useState(true)
     // const value = useSelector(state => state.profile.value)
     const dispatch = useDispatch()
@@ -24,7 +25,8 @@ const Profile = () => {
     }
     useEffect(() => {
         user = users
-        dispatch(editProfile(user))
+        console.log(user)
+        dispatch(updateAdmin(user))
     }, [admin])
 
     return (

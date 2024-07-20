@@ -4,8 +4,9 @@ import { FaSearch } from 'react-icons/fa';
 import { FaBars, FaUser, FaBarsStaggered } from "react-icons/fa6";
 import { getProfile } from '../../lib/slice/profileSlice';
 import { useGetProfileQuery, useUpdateProfileMutation } from '../../lib/api/userApi';
-import './header.scss'
 import { useDispatch } from 'react-redux';
+import { logout } from '../../lib/slice/authSlice';
+import './header.scss'
 
 const Header = ({ bars, setBars }) => {
     const [bool, setBool] = useState(false)
@@ -49,7 +50,7 @@ const Header = ({ bars, setBars }) => {
                             <div className="profile-click">
                                 <button onClick={handleProfile}>Profile</button>
                                 <button>Setting</button>
-                                <button className='log-out'>Log out</button>
+                                <button onClick={() => dispatch(logout())} className='log-out'>Log out</button>
                             </div>
                         ) : <></>
                     }
