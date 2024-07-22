@@ -1,8 +1,9 @@
 import { memo, useState } from 'react'
-import { useGetCustomersQuery, useUpdateCustomersMutation } from '../../lib/api/customers'
+import { useGetCustomersQuery } from '../../lib/api/customers'
 import TableWrapper from '../../components/table-wrapper';
-import Modal from '../../components/modal/Modal';
+// import Modal from '../../components/modal/Modal';
 import Loading from '../../components/loading';
+import TableTitle from '../../components/table-title';
 // Pagination
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
@@ -18,22 +19,13 @@ const Customer = () => {
     const [createdAt, setCreatedAt] = useState(-1)
 
     const [page, setPage] = useState(1)
-    const [showModal, setShowModal] = useState(false)
 
     const { data } = useGetCustomersQuery({ skip: page - 1, paidToday, debt, createdAt, budget })
-    const [update, { isLoading }] = useUpdateCustomersMutation()
 
-    const handleChange = (event, value) => {
+    const handleChange = (_, value) => {
         setPage(value)
     }
     const lengthPage = Math.ceil(data?.totalCount / 10)
-
-    const updateUser = (event) => {
-        event.preventDefault()
-        update((user?._id, showModal))
-    }
-
-
 
     return (
         <div className='customers'>
@@ -66,29 +58,19 @@ const Customer = () => {
                 </label>
                 <label htmlFor="budget">
                     <span>Budget</span>
-                    <select id="budget" className="debt" onChange={(e) => setBudget(e.target.value)} >
+                    <select id="budget" className="budget" onChange={(e) => setBudget(e.target.value)} >
                         <option value={0} className='id'>Barchasi</option>
-                        <option value={-1} className='name'>qarzdorlar</option>
-                        <option value={1} className='name'>Haqdorlar</option>
+                        <option value={-1} className='name'>Eng Ko`pdan Kamga</option>
+                        <option value={1} className='name'>Eng Kamdan Ko`pga</option>
                     </select>
                 </label>
             </div>
-
-            <ul className="customers-title">
-                <li className='id'>ID</li>
-                <li className='name'>Name</li>
-                <li className='address'>Address</li>
-                <li className='tel'>TEl</li>
-                <li className='price'>Budget</li>
-                <li className='more'>Batafsil</li>
-                <li className='btns'>Buttuons</li>
-            </ul>
+            <TableTitle key={'customer-title'} id={'ID'} name={'Name'} address={'Address'} batafsil={'Batafsil'} budget={'Budget'} buttuons={'Buttons'} />
             <ul className="customers-ul">
                 {
                     data?.innerData ?
                         data?.innerData?.map((user, inx) => (
-                            <TableWrapper key={user?._id} id={inx} editUser={updateUser}
-                                user={user} setEdit={setShowModal} />
+                            <TableWrapper key={user?._id} id={inx} user={user} />
                         )) : <Loading />
                 }
             </ul>
@@ -97,31 +79,6 @@ const Customer = () => {
                 <Pagination size='medium' count={lengthPage} page={page} onChange={handleChange} color="primary" />
             </Stack>
             {/* Pagination end */}
-            {
-                showModal ? (
-                    <Modal close={setShowModal} key={'1'} title={'Update User'} >
-                        <form className="update-form">
-                            <label className='create-label'>First Name
-                                <input onChange={(e) => setShowModal(p => ({ ...p, fname: e.target.value }))} value={showModal?.fname}
-                                    className='create-input' type="text" />
-                            </label>
-                            <label className='create-label'>Last Name
-                                <input onChange={(e) => setShowModal(p => ({ ...p, lname: e.target.value }))} value={showModal?.lname}
-                                    className='create-input' type="text" />
-                            </label>
-                            <label className='create-label'>Address
-                                <input onChange={(e) => setShowModal(p => ({ ...p, address: e.target.value }))} value={showModal?.address}
-                                    className='create-input' type="text" />
-                            </label>
-                            <label className='create-label'>Phone number
-                                <input onChange={(e) => setShowModal(p => ({ ...p, phone_primary: e.target.value }))} value={showModal?.phone_primary}
-                                    className='create-input' type="text" />
-                            </label>
-                            <button type='submit' className='update-btn'>Update</button>
-                        </form>
-                    </Modal>
-                ) : <></>
-            }
         </div>
     )
 }
