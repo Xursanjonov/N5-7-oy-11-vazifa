@@ -1,4 +1,3 @@
-// customers ul li styles
 .customers-ul-li {
     width: 100%;
     height: 100%;
@@ -19,21 +18,17 @@
         width: 120px;
         word-break: keep-all;
         color: black;
-        // background-color: aqua;
     }
 
     .address {
         width: 120px;
         word-break: keep-all;
         color: rgb(70, 69, 69);
-        // background-color: aqua;
     }
 
     .tel {
         width: 120px;
         word-break: break-all;
-        // background-color: aqua;
-        // color: rgb(255, 0, 255);
     }
 
     .price {
@@ -92,20 +87,8 @@
         align-items: center;
         justify-content: space-between;
         gap: 10px;
-        // background-color: aqua;
 
-        .edit {
-            width: 26px;
-            height: 26px;
-            padding: 3px 5px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 0;
-        }
-
-        .delete {
+        .edit, .delete {
             width: 26px;
             height: 26px;
             padding: 3px 5px;
@@ -132,6 +115,60 @@
             background-color: #4880FF;
         }
     }
-}
 
-// customers ul li styles end
+    @media (max-width: 1200px) {
+        gap: 30px;
+
+        .id, .name, .address, .tel, .price, .more, .btns {
+            width: 100%;
+            text-align: center;
+        }
+
+        .price span {
+            justify-content: center;
+        }
+
+        .btns {
+            justify-content: center;
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px 20px;
+        gap: 20px;
+
+        .id, .name, .address, .tel, .price, .more, .btns {
+            width: 100%;
+            text-align: center;
+        }
+
+        .price span {
+            justify-content: center;
+        }
+
+        .btns {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 5px 10px;
+        gap: 10px;
+
+        .id, .name, .address, .tel, .price, .more, .btns {
+            width: 100%;
+            text-align: center;
+        }
+
+        .price span {
+            justify-content: center;
+        }
+
+        .btns {
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+}
