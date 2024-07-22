@@ -25,7 +25,7 @@ const Customer = () => {
     const handleChange = (_, value) => {
         setPage(value)
     }
-    const lengthPage = Math.ceil(data?.totalCount / 10)
+    const lengthPage = React.useMemo(() => (Math.ceil(data?.totalCount / 10)))
 
     return (
         <div className='customers'>
@@ -65,7 +65,7 @@ const Customer = () => {
                     </select>
                 </label>
             </div>
-            <TableTitle key={'customer-title'} id={'ID'} name={'Name'} address={'Address'} batafsil={'Batafsil'} budget={'Budget'} buttuons={'Buttons'} />
+            <TableTitle key={'customer-title'} id={'ID'} name={'Name'} address={'Address'} tel={'Tel'} batafsil={'Batafsil'} budget={'Budget'} buttuons={'Buttons'} />
             <ul className="customers-ul">
                 {
                     data?.innerData ?

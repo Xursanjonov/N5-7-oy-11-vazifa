@@ -51,7 +51,7 @@ const TableWrapper = ({ title, user, id }) => {
                 </a>
                 <div className='price'>
                     <span className={user?.budget > 0 ? 'black' : (user?.budget < 0 ? 'red' : (user?.budget === 0 ? 'orange' : ''))}>
-                        {user?.budget > 0 ? (user?.budget).brm() + ' $' : user?.budget === 0 ? (user?.budget).brm() : (user?.budget).brm() + ' $'}
+                        {user?.budget > 0 ? (user?.budget)/* .brm() */ + ' $' : user?.budget === 0 ? (user?.budget)/* .brm() */ : (user?.budget)/* .brm() */ + ' $'}
                     </span>
                 </div>
                 <div className='more'> <span>Batafsil</span> </div>

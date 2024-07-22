@@ -2,60 +2,6 @@
     max-width: 1200px;
     width: 100%;
     margin: 20px auto;
-    // background-color: #ddd;
-
-    .customers-title {
-        width: 100%;
-        margin: 0 auto;
-        padding: 18px 32px;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        gap: 50px;
-        border: 1px solid #ddd;
-        border-radius: 10px 10px 0 0;
-        font-size: 16px;
-        font-family: sans-serif;
-        font-weight: 700;
-
-        .id {
-            width: 40px;
-        }
-
-        .name {
-            width: 120px;
-            color: black;
-        }
-
-        .address {
-            width: 120px;
-            color: rgb(70, 69, 69);
-        }
-
-        .tel {
-            width: 120px;
-            color: rgb(70, 69, 69);
-        }
-
-        .price {
-            width: 141px;
-            text-align: center;
-            color: rgb(70, 69, 69);
-        }
-
-        .more {
-            width: 111px;
-            text-align: center;
-            color: rgb(70, 69, 69);
-        }
-
-        .btns {
-            width: 150px;
-            text-align: center;
-            color: rgb(70, 69, 69);
-            // background-color: aqua;
-        }
-    }
 
     .customers-ul {
         width: 100%;
@@ -165,6 +111,7 @@
         border: 1.4px solid gray;
         border-radius: 6px;
     }
+
     .budget {
         width: 180px;
         padding: 5px 10px;

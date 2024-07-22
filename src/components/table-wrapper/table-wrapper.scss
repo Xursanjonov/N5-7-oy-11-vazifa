@@ -88,7 +88,8 @@
         justify-content: space-between;
         gap: 10px;
 
-        .edit, .delete {
+        .edit,
+        .delete {
             width: 26px;
             height: 26px;
             padding: 3px 5px;
@@ -119,7 +120,13 @@
     @media (max-width: 1200px) {
         gap: 30px;
 
-        .id, .name, .address, .tel, .price, .more, .btns {
+        .id,
+        .name,
+        .address,
+        .tel,
+        .price,
+        .more,
+        .btns {
             width: 100%;
             text-align: center;
         }
@@ -138,7 +145,13 @@
         padding: 10px 20px;
         gap: 20px;
 
-        .id, .name, .address, .tel, .price, .more, .btns {
+        .id,
+        .name,
+        .address,
+        .tel,
+        .price,
+        .more,
+        .btns {
             width: 100%;
             text-align: center;
         }
@@ -153,11 +166,21 @@
         }
     }
 
-    @media (max-width: 480px) {
+}
+
+@media (max-width: 480px) {
+    .customers-ul-li {
+        width: 100%;
         padding: 5px 10px;
         gap: 10px;
 
-        .id, .name, .address, .tel, .price, .more, .btns {
+        .id,
+        .name,
+        .address,
+        .tel,
+        .price,
+        .more,
+        .btns {
             width: 100%;
             text-align: center;
         }
@@ -170,5 +193,49 @@
             flex-direction: column;
             gap: 5px;
         }
+    }
+}
+
+// expense-modal
+.expense-modal {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+
+    label {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 10px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .expense-input {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: 1px solid #c2c1c1;
+        font-weight: 500px;
+        color: black;
+        border-radius: 5px;
+    }
+
+    .expense-btn {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: 1px solid #c2c1c1;
+        border-radius: 5px;
+        background-color: #6226EF;
+        color: white;
+        font-weight: 600;
     }
 }
